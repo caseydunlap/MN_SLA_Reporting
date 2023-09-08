@@ -315,7 +315,7 @@ with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\hha e
 email_from = from_email
 
 with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\hha email - to.txt', 'r') as to_email_project:
-    #to_email = to_email_project.read().strip().split(',')
+    to_email = to_email_project.read().strip().split(',')
     
 email_members = to_email
 
@@ -324,8 +324,9 @@ with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\googl
 
 google_password = google_pass
 
+#Send report
 def send_compliance_report(email_members):
-    subject = 'MN SLA Compliance Monthly Report' + ' '+ '-' + ' ' + formatted_date
+    subject = 'MN SLA Compliance Monthly Report - Month Ending' + ' '+ '-' + ' ' + formatted_date
 
     body = 'MN SLA Compliance Status Update as of month end ' + ' ' + formatted_date + '.'
     
