@@ -314,19 +314,15 @@ with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\hha e
     
 email_from = from_email
 
-#with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\hha email - to.txt', 'r') as to_email_project:
+with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\hha email - to.txt', 'r') as to_email_project:
     #to_email = to_email_project.read().strip().split(',')
     
-#email_members = to_email
-
-#', '.join(email_members_2)
+email_members = to_email
 
 with open('C:\\Users\\mdunlap\\Desktop\\Minnesota SLA Automation\\Secrets\\google app password.txt', 'r') as app_pass:
     google_pass = app_pass.read().replace('\n', '')
 
 google_password = google_pass
-
-email_members = 'mdunlap@hhaexchange.com'
 
 def send_compliance_report(email_members):
     subject = 'MN SLA Compliance Monthly Report' + ' '+ '-' + ' ' + formatted_date
@@ -335,7 +331,7 @@ def send_compliance_report(email_members):
     
     msg = MIMEMultipart()
     msg['From'] = email_from
-    msg['To'] = 'mdunlap@hhaexchange.com'
+    msg['To'] = ', '.join(email_members)
     msg['Subject'] = subject
     msg.attach(MIMEText(body, 'plain'))
 
